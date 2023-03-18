@@ -1,2 +1,2 @@
 # NN_Creator-Trainer
-This library creates highly customizable neural-networks and also has optimization engine to train that network
+This library helps you create highly customizable neural-networks and also has optimization engine to train that network
