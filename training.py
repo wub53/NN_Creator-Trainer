@@ -40,16 +40,19 @@ ydesired = [1.0, -1.0, -1.0, 1.0] # desired targets
 
 ypred=[]
 
+print (my_nn.parameters())
+print (len(my_nn.parameters()))
+
 ## Every iteraton of this loop is an epoch !!
-for i in range(1,15):
-  ypred = forward_pass(my_nn,xs)
+# for i in range(1,15):
+#   ypred = forward_pass(my_nn,xs)
 
-  loss = calc_loss(ydesired,ypred)
-  print(loss)
+#   loss = calc_loss(ydesired,ypred)
+#   print(loss)
 
-  back_prop(my_nn,loss)
+#   back_prop(my_nn,loss)
 
-  nudge_the_weightsbiases(my_nn)
+#   nudge_the_weightsbiases(my_nn)
 
 
 

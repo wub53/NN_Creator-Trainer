@@ -20,10 +20,10 @@ class Variable:
     output.prev = set (t)
     output.operation = '+'
 
-    def _backward():
-      self.grad += 1.0 * output.grad
-      other.grad += 1.0 * output.grad
-    output._backward = _backward
+    def _backward():                                                                        #self ###
+      self.grad += 1.0 * output.grad                                                                  ###(_op)  #output
+      other.grad += 1.0 * output.grad                                                       #other ###    
+    output._backward = _backward                                                                    
 
     return output
   
@@ -77,13 +77,13 @@ class Variable:
     return out
   
   def backward(self):
-    
+    ## topological graph that arranges the nodes(Variable class objects) from left to right and then at end we do reverse of it as we want to do back prop
     topo = []
     visited = set()
-    def build_topo(v):
-      if v not in visited:
+    def build_topo(v):   ## this function acts like a stack! The last element added would be the leftmost element 
+      if v not in visited:  ## the 'not in' feature checks if the element is present in the visited set based on its hash value !!! so every object has its own DISTINCT hash value
         visited.add(v)
-        for child in v.prev:
+        for child in v.prev:    
           build_topo(child)
         topo.append(v)
     build_topo(self)
