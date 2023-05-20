@@ -1,7 +1,7 @@
 import graphviz
 from IPython.display import Image
 
-mlp_skeleton = [3, 2, 4, 2, 1]
+mlp_skeleton = [3, 6, 6, 6, 1]
 layers = len(mlp_skeleton)
 
 mlp_tensor = []
