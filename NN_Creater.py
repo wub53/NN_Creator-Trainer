@@ -36,8 +36,8 @@ class Layer:
 
 class MLP:
   
-  def __init__(self, connections, layers_exluding_ip):
-    mlp_skeleton = [connections] + layers_exluding_ip
+  def __init__(self, connections, layers_exluding_ip):  # 3, [4, 4, 1]
+    mlp_skeleton = [connections] + layers_exluding_ip  # [3, 4, 4, 1]
     self.layers = [Layer(mlp_skeleton[i], mlp_skeleton[i+1]) for i in range(len(layers_exluding_ip))]
   
   def __call__(self, x):
